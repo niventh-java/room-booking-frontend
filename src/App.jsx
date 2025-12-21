@@ -1,0 +1,31 @@
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Rooms from "./pages/Rooms";
+import Amenities from "./pages/Amenities";
+import About from "./pages/About";
+import AdminDashboard from "./pages/AdminDashboard";
+import BookRoom from "./pages/BookRoom";
+
+
+
+export default function App() {
+  return (
+    <div className="bg-[#F8F9FA] min-h-screen">
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Hero />} />
+         <Route path="/rooms" element={<Rooms />} />
+         <Route path="/amenities" element={<Amenities />} />
+         <Route path="/about" element={<About />} />
+
+         
+        {/* ✅ ADMIN ROUTE */}
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/book-room" element={<BookRoom />} />
+
+      </Routes>
+    </div>
+  );
+}
