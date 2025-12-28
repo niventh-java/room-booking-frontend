@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import heroImg from "../assets/hero.jpg";
 import logo from "../assets/logo.png";
-import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -15,21 +15,15 @@ export default function Hero() {
   });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch("http://localhost:8080/api/bookings", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
@@ -46,77 +40,87 @@ export default function Hero() {
         alert("Failed to send message ❌");
       }
     } catch (error) {
-      console.error(error);
       alert("Server error ❌");
     }
   };
 
   return (
     <section
-      className="relative min-h-[75vh] bg-cover bg-center rounded-2xl mx-8 mt-6"
+      className="relative min-h-[85vh] bg-cover bg-center rounded-3xl mx-6 mt-6 overflow-hidden"
       style={{ backgroundImage: `url(${heroImg})` }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10 rounded-2xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/60"></div>
 
       {/* Logo */}
       <div className="absolute top-6 left-6 z-20">
-        <img src={logo} alt="Dazzling Villa Logo" className="h-20 w-auto" />
+        <img src={logo} alt="Dazzling Villa" className="h-20" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 items-center px-12 gap-10 pt-28">
+      {/* Content Grid */}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-12 px-10 pt-32">
 
-        {/* LEFT */}
-        <div className="text-white">
-          <h1 className="text-4xl font-semibold mb-4">
-            Luxury Stay in Munnar
+        {/* LEFT CONTENT */}
+        <div className="text-white space-y-4">
+          <h1 className="text-5xl font-semibold leading-tight">
+            Luxury Stay in <br />
+            <span className="text-[#E6D08A]">Munnar</span>
           </h1>
-          <p className="text-gray-200 max-w-sm">
-            Experience comfort and nature at Dazzling Villa
+          <p className="text-gray-200 max-w-md">
+            Wake up to misty hills, fresh air, and unmatched comfort.
+            Dazzling Villa offers an elegant retreat surrounded by nature.
           </p>
-        </div>
-
-        {/* CENTER */}
-        <div className="bg-white/90 backdrop-blur-md border border-[#E6D8B5] rounded-2xl shadow-2xl p-6 w-80 justify-self-center -translate-y-16">
-          <h3 className="text-lg font-semibold text-center">
-            Check Availability
-          </h3>
-
-          <input type="date" className="w-full border p-2 my-2 rounded" />
-          <input type="date" className="w-full border p-2 my-2 rounded" />
 
           <button
             onClick={() => navigate("/rooms")}
-            className="w-full bg-[#E3C77A] py-2 rounded-lg mt-3"
+            className="mt-4 px-6 py-3 bg-[#C9A24D] text-black rounded-xl font-medium hover:bg-[#E6D08A] transition"
+          >
+            Explore Rooms →
+          </button>
+        </div>
+
+        {/* CENTER CARD */}
+        <div className="bg-white/95 backdrop-blur-md border border-[#E6D08A] rounded-2xl shadow-2xl p-6 w-80 justify-self-center -translate-y-16">
+          <h3 className="text-lg font-semibold text-center mb-3">
+            Check Availability
+          </h3>
+
+          <input type="date" className="w-full border p-2 mb-3 rounded-lg" />
+          <input type="date" className="w-full border p-2 mb-4 rounded-lg" />
+
+          <button
+            onClick={() => navigate("/rooms")}
+            className="w-full bg-[#C9A24D] py-2 rounded-lg font-medium hover:bg-[#E6D08A]"
           >
             Check Rooms →
           </button>
         </div>
 
-        {/* RIGHT – CONTACT FORM */}
+        {/* RIGHT FORM */}
         <form
           onSubmit={handleSubmit}
           className="bg-black/40 backdrop-blur-md border border-white/20 rounded-2xl p-6 w-80 justify-self-end"
         >
-          <h3 className="text-white text-center mb-4">SEND MESSAGE</h3>
+          <h3 className="text-white text-center font-semibold mb-4">
+            Quick Enquiry
+          </h3>
 
           <input
             name="name"
             value={formData.name}
             onChange={handleChange}
             placeholder="Name"
-            className="w-full mb-3 p-2 rounded bg-white/10 text-white"
+            className="w-full mb-3 p-2 rounded bg-white/10 text-white placeholder-gray-300"
             required
           />
 
           <input
             name="email"
+            type="email"
             value={formData.email}
             onChange={handleChange}
             placeholder="Email"
-            type="email"
-            className="w-full mb-3 p-2 rounded bg-white/10 text-white"
+            className="w-full mb-3 p-2 rounded bg-white/10 text-white placeholder-gray-300"
             required
           />
 
@@ -125,7 +129,7 @@ export default function Hero() {
             value={formData.phone}
             onChange={handleChange}
             placeholder="Phone"
-            className="w-full mb-3 p-2 rounded bg-white/10 text-white"
+            className="w-full mb-3 p-2 rounded bg-white/10 text-white placeholder-gray-300"
             required
           />
 
@@ -147,26 +151,28 @@ export default function Hero() {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            placeholder="Your Query"
+            placeholder="Your message"
             rows="2"
-            className="w-full mb-4 p-2 rounded bg-white/10 text-white"
+            className="w-full mb-4 p-2 rounded bg-white/10 text-white placeholder-gray-300"
           />
 
           <button
             type="submit"
-            className="w-full bg-[#C9A24D] py-2 rounded text-white"
+            className="w-full bg-[#C9A24D] py-2 rounded-lg text-black font-medium hover:bg-[#E6D08A]"
           >
-            Submit Now →
+            Submit →
           </button>
         </form>
-         {/* ABOUT */}
-      <div className="relative z-10 -mt-8 px-12 pb-8">
-        <p className="text-gray-200 max-w-3xl text-xs leading-relaxed">
-          Nestled in the serene hills of Munnar,{" "}
-          <span className="text-white font-medium">Dazzling Villa</span>{" "}
-          offers a perfect blend of comfort, nature, and elegance.
-        </p>
       </div>
+
+      {/* ABOUT TEXT */}
+      <div className="relative z-10 px-10 pb-10 mt-6">
+        <p className="text-gray-300 text-sm max-w-3xl">
+          Nestled in the serene hills of Munnar,
+          <span className="text-white font-medium"> Dazzling Villa </span>
+          blends modern luxury with natural beauty — perfect for families,
+          couples, and peaceful getaways.
+        </p>
       </div>
     </section>
   );

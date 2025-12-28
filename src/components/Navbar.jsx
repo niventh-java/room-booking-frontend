@@ -8,42 +8,63 @@ export default function Navbar() {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="bg-white/90 backdrop-blur border-b px-12 py-4 flex justify-between items-center sticky top-0 z-50">
-        <h1 className="font-[Playfair Display] text-2xl text-[#C9A24D]">
-          DAZZLING VILLA – MUNNAR
-        </h1>
+      <nav className="bg-white/90 backdrop-blur border-b px-4 md:px-12 py-3 flex justify-between items-center sticky top-0 z-50">
+      
+       <h1
+  className="
+    font-[Playfair Display]
+    text-sm md:text-base
+    font-medium
+    tracking-[0.22em]
+    uppercase
+    text-[#C9A24D]
+    drop-shadow-sm
+  "
+>
+  Feel at Home in Munnar
+</h1>
+<ul className="hidden md:flex gap-8 text-gray-800 font-medium tracking-wide">
+  <li className="hover:text-[#C9A24D] transition-colors">
+    <Link to="/rooms">Rooms</Link>
+  </li>
 
-        <ul className="hidden md:flex gap-8 text-gray-600">
-          <li className="hover:text-black">
-            <Link to="/rooms">Rooms</Link>
-          </li>
+  <li className="hover:text-[#C9A24D] transition-colors">
+    <Link to="/amenities">Amenities</Link>
+  </li>
 
-          <li className="hover:text-black">
-            <Link to="/amenities">Amenities</Link>
-          </li>
+  <li className="hover:text-[#C9A24D] transition-colors">
+    <Link to="/about">About</Link>
+  </li>
 
-          <li className="hover:text-black">
-            <Link to="/about">About</Link>
-          </li>
+  <li
+    className="cursor-pointer hover:text-[#C9A24D] transition-colors"
+    onClick={() => setOpen(true)}
+  >
+    Contact
+  </li>
 
-          <li
-            className="cursor-pointer hover:text-black"
-            onClick={() => setOpen(true)}
-          >
-            Contact
-          </li>
+  <li
+    className="cursor-pointer hover:text-[#C9A24D] transition-colors"
+    onClick={() => setMapOpen(true)}
+  >
+    Location
+  </li>
+</ul>
 
-          <li
-            className="cursor-pointer hover:text-black"
-            onClick={() => setMapOpen(true)}
-          >
-            Location
-          </li>
-        </ul>
-
-        <button className="border px-4 py-1 rounded hover:bg-gray-100">
-          Login
-        </button>
+<button
+  className="
+    border border-[#C9A24D]/60
+    px-5 py-1.5
+    rounded-full
+    text-sm font-semibold
+    text-gray-900
+    hover:bg-[#C9A24D]/10
+    hover:text-[#C9A24D]
+    transition
+  "
+>
+  Login
+</button>
       </nav>
 
       {/* CONTACT POPUP */}
