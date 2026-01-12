@@ -19,3 +19,229 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.stroke-text {
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.25);
+}
+/* Prevent horizontal scroll */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better font rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+/* ===== SERVICES MARQUEE ===== */
+
+.services-marquee {
+  display: flex;
+  gap: 3.5rem;
+  width: max-content;
+  animation: servicesScroll 28s linear infinite;
+}
+
+/* Pause on hover (luxury touch) */
+.services-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Individual pill */
+.service-pill {
+  min-width: 260px;
+  padding: 1.5rem 2.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
+}
+
+.service-pill:hover {
+  border-color: #c9a24d;
+  transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes servicesScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 768px) {
+  .services-marquee {
+    animation-duration: 40s;
+  }
+}
+/* ===== DIRECTION MARQUEE ===== */
+
+.direction-marquee {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: scroll-left 35s linear infinite;
+}
+
+/* Smooth infinite scroll */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Direction Card */
+.direction-card {
+  min-width: 320px;
+  max-width: 320px;
+  padding: 24px;
+  border-radius: 20px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(201, 162, 77, 0.25);
+
+  box-shadow:
+    0 0 30px rgba(201, 162, 77, 0.15),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.direction-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 50px rgba(201, 162, 77, 0.35),
+    inset 0 0 25px rgba(255, 255, 255, 0.08);
+}
+
+/* Mobile tuning */
+@media (max-width: 768px) {
+  .direction-card {
+    min-width: 280px;
+    max-width: 280px;
+  }
+
+  .direction-marquee {
+    animation-duration: 45s;
+  }
+}
+.luxury-bg {
+  background:
+    radial-gradient(
+      1200px 600px at 20% -10%,
+      rgba(201, 162, 77, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      800px 500px at 80% 10%,
+      rgba(255, 255, 255, 0.06),
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      #0b0e11 0%,
+      #0e1216 40%,
+      #0a0d10 100%
+    );
+}
+.direction-marquee {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: directionScroll 45s linear infinite;
+}
+
+@keyframes directionScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.direction-card {
+  min-width: 320px;
+  padding: 28px;
+  border-radius: 22px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.03)
+  );
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+
+  transition: transform 0.4s ease;
+}
+
+.direction-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Mobile tuning */
+@media (max-width: 640px) {
+  .direction-card {
+    min-width: 280px;
+  }
+
+  .direction-marquee {
+    animation-duration: 60s;
+  }
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+@keyframes reveal {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-reveal { animation: reveal 0.4s ease-out forwards; }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee 40s linear infinite reverse;
+}

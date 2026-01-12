@@ -58,3 +58,67 @@ export default function CalendarCard() {
     </div>
   );
 }
+
+      {/* CENTER – Check Availability */}
+<div
+  className="
+    hidden lg:block
+    absolute
+    top-1/2
+    left-1/2
+    -translate-x-[-10%]
+    -translate-y-1/2
+    w-[300px]
+    rounded-2xl
+    border border-[#C9A24D]/30
+    bg-black/40
+    backdrop-blur-xl
+    shadow-2xl
+    p-6
+    z-20
+  "
+>
+  {/* Header */}
+  <div className="text-center mb-5">
+    <h3 className="text-white text-xs font-semibold tracking-[0.25em] uppercase">
+      Check Availability
+    </h3>
+    <div className="mt-2 h-px w-10 mx-auto bg-[#C9A24D]" />
+  </div>
+
+  {/* Inputs */}
+  <input
+    type="date"
+    className="
+      w-full rounded-lg bg-white/10 px-3 py-2
+      text-sm text-white
+      focus:outline-none focus:ring-2 focus:ring-[#C9A24D]/60
+      mb-3
+    "
+  />
+
+  <input
+    type="date"
+    className="
+      w-full rounded-lg bg-white/10 px-3 py-2
+      text-sm text-white
+      focus:outline-none focus:ring-2 focus:ring-[#C9A24D]/60
+      mb-4
+    "
+  />
+
+  {/* Button */}
+  <button
+    onClick={() => navigate('/rooms')}
+    className="
+      w-full rounded-xl
+      bg-gradient-to-r from-[#C9A24D] to-[#E6D08A]
+      py-2.5 text-sm font-semibold text-black
+      shadow-lg hover:scale-[1.03] transition
+    "
+  >
+    Check Rooms →
+  </button>
+</div>
+
+        

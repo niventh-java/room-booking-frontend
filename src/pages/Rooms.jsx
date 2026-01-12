@@ -1,50 +1,93 @@
 import RoomCard from "../components/RoomCard";
 
-import deluxe from "../assets/deluxe.jpg";
-import queen from "../assets/queen.jpg";
-import single from "../assets/single.jpg";
+import deluxe from "../assets/deluxe.jpeg";
+import queen from "../assets/queen.jpeg";
+import single from "../assets/single.jpeg";
+import luxury from "../assets/luxury.jpeg";
 
 export default function Rooms() {
   return (
-    <section className="px-12 py-20 bg-[#F8F9FA] min-h-screen">
-      <h2 className="text-3xl font-semibold mb-10 text-gray-800">
-        Our Rooms
-      </h2>
+    <section
+      className="
+        min-h-screen
+        py-20
+        px-6 sm:px-10 lg:px-16
+        bg-black
+      "
+    >
+      {/* SECTION HEADER */}
+      <div className="max-w-6xl mx-auto text-center mb-16">
+        <h2 className="text-3xl sm:text-4xl font-semibold tracking-wide text-white">
+          Our Rooms
+        </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* GOLD DIVIDER */}
+        <div className="flex items-center justify-center gap-4 mt-5">
+          <div className="h-px w-16 bg-[#C9A24D]/40" />
+          <span className="text-[#C9A24D] text-xs tracking-widest uppercase">
+            Luxury & Comfort
+          </span>
+          <div className="h-px w-16 bg-[#C9A24D]/40" />
+        </div>
+
+        <p className="mt-6 text-gray-400 max-w-2xl mx-auto">
+          Thoughtfully designed spaces where elegance meets nature —
+          tailored for comfort, calm, and unforgettable stays.
+        </p>
+      </div>
+
+      {/* ROOMS GRID */}
+      <div
+        className="
+          max-w-6xl mx-auto
+          grid grid-cols-1
+          sm:grid-cols-2
+          lg:grid-cols-3
+          gap-8 lg:gap-10
+        "
+      >
         <RoomCard
           name="Premium Valley View"
           price="3500"
           image={deluxe}
-          description="Spacious room with balcony and stunning valley view"
+          description="Spacious room with a private balcony and stunning valley views."
         />
 
         <RoomCard
           name="Luxury Queen Room"
           price="2800"
           image={queen}
-          description="Elegant room with forest-facing windows"
+          description="Elegant interiors with forest-facing windows and modern comfort."
         />
 
         <RoomCard
           name="Budget Single Room"
           price="1500"
           image={single}
-          description="Ideal for solo travellers"
+          description="Perfect for solo travelers seeking peace and simplicity."
         />
 
         <RoomCard
-          name="Ashwin Inn"
+          name="Denim Rooms"
           price="700"
-          image={deluxe}
-          description="Comfortable budget stay"
+          image={luxury}
+          description="Comfortable and affordable stay with essential amenities."
         />
-         <RoomCard
-          name=" Noharks Inn Room"
+
+        <RoomCard
+          name=" Inn Room"
           price="1500"
           image={single}
-          description="Ideal for solo travellers"
+          description="Cozy and well-maintained rooms ideal for short stays."
         />
+      </div>
+      {/* LUXURY PRICING NOTICE - The "Negotiable" Standard */}
+      <div className="max-w-4xl mx-auto mt-20 text-center border-t border-white/5 pt-10">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-light">
+          * Rates are subject to seasonal variations and length of stay. 
+          <br className="hidden md:block" /> 
+          <span className="text-[#C9A24D]/60"> Connect with our concierge for bespoke group pricing and special corporate offers.</span>
+        </p>
       </div>
     </section>
   );
