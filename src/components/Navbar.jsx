@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { Menu, X, Phone, Mail, MapPin, MessageCircle, Navigation } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, MessageCircle, Navigation, Car } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [mapOpen, setMapOpen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
 
-  // Replace this URL with your actual Google Maps Embed link from "Share > Embed a map"
+  // Replace this URL with your actual Google Maps Embed link
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.324317926131!2d77.0597!3d10.06!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0799794d09383d%3A0x9597148003f4f6e1!2sDevikulam%2C%20Munnar!5e0!3m2!1sen!2sin!4v1700000000000";
 
   return (
@@ -18,36 +18,51 @@ export default function Navbar() {
         <Link to="/" className="z-[60]">
           <img src={logo} alt="Dazzling Villa" className="h-8 md:h-10 object-contain" />
         </Link>
-{/* DESKTOP MENU - HIGH BRIGHTNESS */}
-<div className="ml-auto hidden md:flex items-center gap-10">
-  <ul className="flex gap-10 text-white text-[11px] uppercase tracking-[0.25em] font-medium drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">
-    <li className="hover:text-[#F3E5AB] transition-colors duration-300">
-      <Link to="/rooms">Suites</Link>
-    </li>
-    <li className="hover:text-[#F3E5AB] transition-colors duration-300">
-      <Link to="/amenities">Amenities</Link>
-    </li>
-    <li className="hover:text-[#F3E5AB] transition-colors duration-300">
-      <Link to="/about">Our Story</Link>
-    </li>
-    <li
-      className="cursor-pointer hover:text-[#F3E5AB] transition-colors duration-300"
-      onClick={() => setOpen(true)}
-    >
-      Contact
-    </li>
-    <li
-      className="cursor-pointer hover:text-[#F3E5AB] transition-colors duration-300"
-      onClick={() => setMapOpen(true)}
-    >
-      Location
-    </li>
-  </ul>
 
-  <button className="border border-[#E6D08A] px-8 py-2 text-[10px] uppercase tracking-[0.3em] text-white font-bold hover:bg-[#E6D08A] hover:text-black transition-all duration-500 shadow-[0_0_10px_rgba(230,208,138,0.3)]">
-    Login
-  </button>
-</div>
+        {/* DESKTOP MENU */}
+        <div className="ml-auto hidden md:flex items-center gap-10">
+          <ul className="flex gap-10 text-white text-[11px] uppercase tracking-[0.25em] font-medium drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">
+            <li className="relative group hover:text-[#F3E5AB] transition-colors duration-300">
+              <Link to="/rooms">Suites</Link>
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C9A24D] transition-all duration-500 group-hover:w-full"></span>
+            </li>
+            
+            {/* NEW TRANSPORT LINK */}
+            <li className="relative group hover:text-[#F3E5AB] transition-colors duration-300">
+              <Link to="/transport" className="flex items-center gap-2">
+                Transport
+              </Link>
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C9A24D] transition-all duration-500 group-hover:w-full"></span>
+            </li>
+
+            <li className="relative group hover:text-[#F3E5AB] transition-colors duration-300">
+              <Link to="/amenities">Amenities</Link>
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C9A24D] transition-all duration-500 group-hover:w-full"></span>
+            </li>
+            <li className="relative group hover:text-[#F3E5AB] transition-colors duration-300">
+              <Link to="/about">Our Story</Link>
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C9A24D] transition-all duration-500 group-hover:w-full"></span>
+            </li>
+            <li
+              className="relative group cursor-pointer hover:text-[#F3E5AB] transition-colors duration-300"
+              onClick={() => setOpen(true)}
+            >
+              Contact
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C9A24D] transition-all duration-500 group-hover:w-full"></span>
+            </li>
+            <li
+              className="relative group cursor-pointer hover:text-[#F3E5AB] transition-colors duration-300"
+              onClick={() => setMapOpen(true)}
+            >
+              Location
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C9A24D] transition-all duration-500 group-hover:w-full"></span>
+            </li>
+          </ul>
+
+          <button className="border border-[#E6D08A] px-8 py-2 text-[10px] uppercase tracking-[0.3em] text-white font-bold hover:bg-[#E6D08A] hover:text-black transition-all duration-500 shadow-[0_0_10px_rgba(230,208,138,0.3)]">
+            Login
+          </button>
+        </div>
 
         {/* MOBILE MENU BUTTON */}
         <button className="ml-auto md:hidden text-white z-[60]" onClick={() => setMobileMenu(!mobileMenu)}>
@@ -61,6 +76,8 @@ export default function Navbar() {
           <div className="flex flex-col items-center gap-8 text-[12px] uppercase tracking-[0.6em] font-light">
             <Link to="/" onClick={() => setMobileMenu(false)}>Home</Link>
             <Link to="/rooms" onClick={() => setMobileMenu(false)}>Suites</Link>
+            {/* MOBILE TRANSPORT LINK */}
+            <Link to="/transport" onClick={() => setMobileMenu(false)}>Transport</Link>
             <Link to="/amenities" onClick={() => setMobileMenu(false)}>Amenities</Link>
             <button onClick={() => { setOpen(true); setMobileMenu(false); }}>Contact</button>
             <button onClick={() => { setMapOpen(true); setMobileMenu(false); }}>Location</button>
@@ -86,11 +103,15 @@ export default function Navbar() {
                   <MapPin size={18} className="text-[#C9A24D] shrink-0" />
                   <p className="text-white/60 text-xs font-light tracking-wide leading-relaxed">Devikulam, Munnar, Kerala, India</p>
                 </div>
-                <a href="tel:+919360809160" className="flex gap-4 group">
-                  <Phone size={18} className="text-[#C9A24D] shrink-0" />
-                  <p className="text-white/60 text-xs font-light group-hover:text-white transition-colors">+91 93608 09160</p>
-                  <p className="text-white/60 text-xs font-light group-hover:text-white transition-colors">+91 99409 84731</p>
-                </a>
+                <div className="flex flex-col gap-2">
+                  <a href="tel:+919360809160" className="flex gap-4 group">
+                    <Phone size={18} className="text-[#C9A24D] shrink-0" />
+                    <p className="text-white/60 text-xs font-light group-hover:text-white transition-colors">+91 93608 09160</p>
+                  </a>
+                  <a href="tel:+919940984731" className="flex gap-4 group ml-8">
+                    <p className="text-white/60 text-xs font-light group-hover:text-white transition-colors">+91 99409 84731</p>
+                  </a>
+                </div>
                 <a href="mailto:dazzlingvillamunnar@gmail.com" className="flex gap-4 group">
                   <Mail size={18} className="text-[#C9A24D] shrink-0" />
                   <p className="text-white/60 text-xs font-light group-hover:text-white transition-colors break-all">dazzlingvillamunnar@gmail.com</p>
@@ -130,7 +151,6 @@ export default function Navbar() {
                 allowFullScreen=""
                 loading="lazy"
               />
-              {/* Luxury Map Overlay Button */}
               <div className="absolute bottom-8 right-8">
                 <a 
                   href="https://www.google.com/maps/dir//Devikulam,+Munnar,+Kerala"

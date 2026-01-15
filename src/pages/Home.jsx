@@ -6,7 +6,7 @@ import Services from "../components/services";
 import Directions from "../components/Directions";
 import RoomGallery from "../components/RoomGallery";
 import Footer from "../components/Footer";
-
+import Transport from "../components/Transport";
 
 
 
@@ -16,6 +16,7 @@ export default function Home() {
       <Hero />   
         
       <About />
+      <Transport/>
       <RoomGallery />
       <Services />
       <Directions/>
