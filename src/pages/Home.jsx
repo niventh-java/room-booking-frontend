@@ -1,7 +1,7 @@
 import Hero from "../components/Hero";
 import About from "../components/About";
 import Amenities from "../components/Amenities";
-
+import Services from "../components/services";
 import Directions from "../components/Directions";
 import RoomGallery from "../components/RoomGallery";
 import Footer from "../components/Footer";
