@@ -3,7 +3,7 @@ import About from "../components/About";
 import Amenities from "../components/Amenities";
 import FloatingGallery from "../components/FloatingGallery";
 // Changed 'services' to 'Services' to fix Vercel build error
-import Services from "../components/Services"; 
+import Services from "../components/Services";
 import Directions from "../components/Directions";
 import RoomGallery from "../components/RoomGallery";
 import Footer from "../components/Footer";
