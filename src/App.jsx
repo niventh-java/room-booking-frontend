@@ -13,6 +13,7 @@ import Amenities from "./components/Amenities";
 import About from "./components/About";
 import Transport from "./components/Transport";
 
+
 // 2. Optimized PageWrapper component
 const PageWrapper = ({ children }) => (
   <motion.div
