@@ -3,7 +3,7 @@ import {
   Phone, Mail, MapPin, Instagram, Facebook, 
   Linkedin, ArrowUp, Send 
 } from "lucide-react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo1.png";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -77,7 +77,7 @@ export default function Footer() {
               <div className="space-y-5">
                 <a href="mailto:dazzlingvillamunnar@gmail.com" className="flex items-center justify-center sm:justify-start gap-3 text-xs md:text-sm text-white/60 hover:text-[#C9A24D] transition-colors break-all">
                   <Mail size={16} className="shrink-0" />
-                  <span>dazzlingvillamunnar@gmail.com</span>
+                  <span>journeyjunctionmunnar@gmail.com</span>
                 </a>
                 <div className="flex flex-col gap-3 text-xs md:text-sm text-white/60">
                   <a href="tel:+919940984731" className="flex items-center justify-center sm:justify-start gap-3 py-1">
@@ -107,7 +107,7 @@ export default function Footer() {
         {/* BOTTOM BAR: Stacked on mobile */}
         <div className="pt-8 border-t border-white/5 flex flex-col-reverse md:flex-row justify-between items-center gap-8">
           <p className="text-[9px] text-white/30 uppercase tracking-[0.2em] text-center">
-            © 2024 Dazzling Villa Munnar. <br className="md:hidden" /> All Rights Reserved.
+            © 2024 Journey Junction Munnar. <br className="md:hidden" /> All Rights Reserved.
           </p>
           
           <button 

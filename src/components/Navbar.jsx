@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
-import { Menu, X, Phone, Mail, MapPin, MessageCircle, Navigation, Car } from "lucide-react";
+import logo1 from "../assets/logo1.png";
+// Combined all icons into one single import to avoid duplicate declaration errors
+import { Menu, X, Phone, Mail, MapPin, MessageCircle, Navigation, Car, ArrowLeft } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [mapOpen, setMapOpen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
 
-  // Replace this URL with your actual Google Maps Embed link
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.324317926131!2d77.0597!3d10.06!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0799794d09383d%3A0x9597148003f4f6e1!2sDevikulam%2C%20Munnar!5e0!3m2!1sen!2sin!4v1700000000000";
 
   return (
@@ -16,25 +16,21 @@ export default function Navbar() {
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-6 flex items-center bg-transparent">
         <Link to="/" className="z-[60]">
-          <img src={logo} alt="Dazzling Villa" className="h-8 md:h-10 object-contain" />
+          {/* Logo size optimized for mobile (h-12) and desktop (h-10 original) */}
+          <img src={logo1} alt="Dazzling Villa" className="h-12 md:h-10 object-contain" />
         </Link>
 
-        {/* DESKTOP MENU */}
+        {/* DESKTOP MENU - Kept exactly as your original */}
         <div className="ml-auto hidden md:flex items-center gap-10">
           <ul className="flex gap-10 text-white text-[11px] uppercase tracking-[0.25em] font-medium drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">
             <li className="relative group hover:text-[#F3E5AB] transition-colors duration-300">
               <Link to="/rooms">Suites</Link>
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C9A24D] transition-all duration-500 group-hover:w-full"></span>
             </li>
-            
-            {/* NEW TRANSPORT LINK */}
             <li className="relative group hover:text-[#F3E5AB] transition-colors duration-300">
-              <Link to="/transport" className="flex items-center gap-2">
-                Transport
-              </Link>
+              <Link to="/transport" className="flex items-center gap-2">Transport</Link>
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C9A24D] transition-all duration-500 group-hover:w-full"></span>
             </li>
-
             <li className="relative group hover:text-[#F3E5AB] transition-colors duration-300">
               <Link to="/amenities">Amenities</Link>
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C9A24D] transition-all duration-500 group-hover:w-full"></span>
@@ -43,22 +39,15 @@ export default function Navbar() {
               <Link to="/about">Our Story</Link>
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C9A24D] transition-all duration-500 group-hover:w-full"></span>
             </li>
-            <li
-              className="relative group cursor-pointer hover:text-[#F3E5AB] transition-colors duration-300"
-              onClick={() => setOpen(true)}
-            >
+            <li className="relative group cursor-pointer hover:text-[#F3E5AB] transition-colors duration-300" onClick={() => setOpen(true)}>
               Contact
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C9A24D] transition-all duration-500 group-hover:w-full"></span>
             </li>
-            <li
-              className="relative group cursor-pointer hover:text-[#F3E5AB] transition-colors duration-300"
-              onClick={() => setMapOpen(true)}
-            >
+            <li className="relative group cursor-pointer hover:text-[#F3E5AB] transition-colors duration-300" onClick={() => setMapOpen(true)}>
               Location
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C9A24D] transition-all duration-500 group-hover:w-full"></span>
             </li>
           </ul>
-
           <button className="border border-[#E6D08A] px-8 py-2 text-[10px] uppercase tracking-[0.3em] text-white font-bold hover:bg-[#E6D08A] hover:text-black transition-all duration-500 shadow-[0_0_10px_rgba(230,208,138,0.3)]">
             Login
           </button>
@@ -66,27 +55,49 @@ export default function Navbar() {
 
         {/* MOBILE MENU BUTTON */}
         <button className="ml-auto md:hidden text-white z-[60]" onClick={() => setMobileMenu(!mobileMenu)}>
-          {mobileMenu ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
+          {mobileMenu ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
         </button>
       </nav>
 
-      {/* MOBILE MENU PANEL */}
+      {/* MODIFIED MOBILE MENU PANEL */}
       {mobileMenu && (
-        <div className="fixed inset-0 z-50 bg-[#0A0F0A] flex flex-col items-center justify-center gap-10 text-white transition-all animate-[reveal_0.4s_ease-out]">
-          <div className="flex flex-col items-center gap-8 text-[12px] uppercase tracking-[0.6em] font-light">
-            <Link to="/" onClick={() => setMobileMenu(false)}>Home</Link>
-            <Link to="/rooms" onClick={() => setMobileMenu(false)}>Suites</Link>
-            {/* MOBILE TRANSPORT LINK */}
-            <Link to="/transport" onClick={() => setMobileMenu(false)}>Transport</Link>
-            <Link to="/amenities" onClick={() => setMobileMenu(false)}>Amenities</Link>
-            <button onClick={() => { setOpen(true); setMobileMenu(false); }}>Contact</button>
-            <button onClick={() => { setMapOpen(true); setMobileMenu(false); }}>Location</button>
+        <div className="fixed inset-0 z-[100] bg-[#0A0F0A]/95 backdrop-blur-xl flex flex-col items-center justify-center text-white transition-all animate-in fade-in duration-300">
+          
+          {/* Top Decorative Line */}
+          <div className="absolute top-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#C9A24D] to-transparent" />
+
+          {/* Close Button Top Right */}
+          <button 
+            onClick={() => setMobileMenu(false)}
+            className="absolute top-8 right-8 p-3 text-white/50 hover:text-[#E6D08A] transition-all hover:rotate-90"
+          >
+            <X size={32} strokeWidth={1} />
+          </button>
+
+          {/* Menu Links */}
+          <div className="flex flex-col items-center gap-10 text-[14px] uppercase tracking-[0.5em] font-light">
+            <Link to="/" onClick={() => setMobileMenu(false)} className="hover:text-[#E6D08A] transition-colors active:scale-95">Home</Link>
+            <Link to="/rooms" onClick={() => setMobileMenu(false)} className="hover:text-[#E6D08A] transition-colors active:scale-95">Suites</Link>
+            <Link to="/transport" onClick={() => setMobileMenu(false)} className="hover:text-[#E6D08A] transition-colors active:scale-95">Transport</Link>
+            <Link to="/amenities" onClick={() => setMobileMenu(false)} className="hover:text-[#E6D08A] transition-colors active:scale-95">Amenities</Link>
+            <button onClick={() => { setOpen(true); setMobileMenu(false); }} className="hover:text-[#E6D08A] transition-colors uppercase tracking-[0.5em]">Contact</button>
+            <button onClick={() => { setMapOpen(true); setMobileMenu(false); }} className="hover:text-[#E6D08A] transition-colors uppercase tracking-[0.5em]">Location</button>
           </div>
+
+          {/* DEDICATED RETURN OPTION AT BOTTOM */}
+          <button 
+            onClick={() => setMobileMenu(false)}
+            className="absolute bottom-16 flex items-center gap-3 text-[#C9A24D] text-[11px] uppercase tracking-[0.4em] font-bold border-b border-[#C9A24D]/20 pb-2 hover:border-[#C9A24D] transition-all active:scale-90"
+          >
+            <ArrowLeft size={16} />
+            Return to Stay
+          </button>
         </div>
       )}
 
-      {/* PREMIUM CONCIERGE POPUP */}
+      {/* REST OF YOUR CODE (Popups) - UNCHANGED */}
       {open && (
+        /* ... keeping your original concierge code ... */
         <div className="fixed inset-0 flex items-center justify-center z-[100] px-6">
           <div className="absolute inset-0 bg-[#0A0F0A]/90 backdrop-blur-md" onClick={() => setOpen(false)} />
           <div className="relative bg-[#0D120D] border border-[#C9A24D]/20 w-full max-w-md shadow-2xl animate-[reveal_0.4s_ease-out]">
@@ -97,7 +108,6 @@ export default function Navbar() {
               </button>
               <span className="text-[#C9A24D] text-[10px] uppercase tracking-[0.5em] block mb-4">Guest Experience</span>
               <h2 className="text-white font-serif italic text-4xl mb-10">Nishanth</h2>
-              
               <div className="space-y-6 text-left mb-10">
                 <div className="flex gap-4">
                   <MapPin size={18} className="text-[#C9A24D] shrink-0" />
@@ -117,7 +127,6 @@ export default function Navbar() {
                   <p className="text-white/60 text-xs font-light group-hover:text-white transition-colors break-all">dazzlingvillamunnar@gmail.com</p>
                 </a>
               </div>
-
               <a href="https://wa.me/919360809160" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 bg-[#C9A24D] text-black py-4 text-[10px] uppercase tracking-[0.4em] font-medium hover:bg-white transition-all">
                 <MessageCircle size={16} /> WhatsApp Concierge
               </a>
@@ -126,12 +135,11 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* PREMIUM MAP POPUP */}
       {mapOpen && (
+        /* ... keeping your original map code ... */
         <div className="fixed inset-0 flex items-center justify-center z-[100] px-4 md:px-10 py-10">
           <div className="absolute inset-0 bg-[#0A0F0A]/95 backdrop-blur-md" onClick={() => setMapOpen(false)} />
           <div className="relative bg-[#0D120D] border border-white/10 w-full max-w-5xl h-full flex flex-col animate-[reveal_0.4s_ease-out]">
-            
             <div className="flex justify-between items-center px-8 py-6 border-b border-white/5">
               <div>
                 <span className="text-[#C9A24D] text-[9px] uppercase tracking-[0.4em] block mb-1">Navigation</span>
@@ -141,7 +149,6 @@ export default function Navbar() {
                 <X size={28} strokeWidth={1} />
               </button>
             </div>
-
             <div className="flex-grow relative bg-[#1a1a1a]">
               <iframe
                 title="Dazzling Villa Location"

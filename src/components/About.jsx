@@ -12,7 +12,7 @@ export default function About() {
           Since 2024
         </span>
         <h2 className="text-4xl md:text-5xl font-serif italic text-white mb-6">
-          About Dazzling Villa
+          About our Villa
         </h2>
         <div className="w-20 h-[1px] bg-[#C9A24D]/30 mx-auto"></div>
       </section>
@@ -21,7 +21,7 @@ export default function About() {
       <section className="relative py-20 px-6 md:px-20 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
-            <h2 className="text-[#C9A24D] uppercase tracking-widest text-xs mb-4">The Dazzling Experience</h2>
+            <h2 className="text-[#C9A24D] uppercase tracking-widest text-xs mb-4">The Jouney junction Experience</h2>
             <h3 className="text-3xl md:text-4xl font-serif mb-6 leading-snug">
               A sanctuary carved into the <br /> 
               <span className="italic text-[#E6D08A]">mist-covered hills.</span>
@@ -80,7 +80,7 @@ export default function About() {
     {/* HEADER: Minimized and Elegant */}
     <div className="text-center mb-20 md:mb-28 reveal-card" style={{ animationDelay: '0.2s' }}>
       <span className="text-[#C9A24D] uppercase tracking-[0.6em] text-[9px] md:text-[11px] mb-4 block font-medium opacity-90">
-        Essence of Dazzling
+        Essence of Journey Junction
       </span>
       <h2 className="text-4xl md:text-6xl font-serif italic text-white tracking-tight leading-tight">
         Why Guests <br className="md:hidden" /> Choose Us
@@ -162,7 +162,7 @@ export default function About() {
           </div>
           <div className="flex flex-col items-center gap-3">
              <Mail size={18} className="text-[#C9A24D]/70" />
-             <p className="text-s tracking-widest lowercse border-b border-[#C9A24D]/20 pb-1">dazzlingvillamunnar@gmail.com</p>
+             <p className="text-s tracking-widest lowercse border-b border-[#C9A24D]/20 pb-1">journeyjunctionmunnar@gmail.com</p>
           </div>
           <div className="flex flex-col items-center gap-3">
              <MapPin size={18} className="text-[#C9A24D]/70" />
@@ -173,7 +173,7 @@ export default function About() {
         </div>
 
         <div className="mt-20 opacity-20">
-           <p className="font-serif italic text-2xl tracking-tighter">— Dazzling Villa —</p>
+           <p className="font-serif italic text-2xl tracking-tighter">— Journey Junction —</p>
         </div>
       </section>
     </div>

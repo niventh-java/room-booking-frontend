@@ -7,7 +7,8 @@ import About from "./components/About";
 import AdminDashboard from "./pages/AdminDashboard";
 import BookRoom from "./pages/BookRoom";
 import Home from "./pages/Home";
-import Transport from "./components/Transport"; // 1. IMPORT ADDED HERE
+import Transport from "./components/Transport"; 
+import EnquiryPage from "./pages/EnquiryPage";
 
 // 2. Optimized PageWrapper component
 const PageWrapper = ({ children }) => (
@@ -33,21 +34,14 @@ export default function App() {
           {/* Using the location key ensures the animation triggers on every route change */}
           <Routes location={location} key={location.pathname}>
             
-            <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
-            
-            <Route path="/rooms" element={<PageWrapper><Rooms /></PageWrapper>} />
-            
-            <Route path="/amenities" element={<PageWrapper><Amenities /></PageWrapper>} />
-            
-            {/* 3. Transport route now works perfectly */}
+            <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />            
+            <Route path="/rooms" element={<PageWrapper><Rooms /></PageWrapper>} />           
+            <Route path="/amenities" element={<PageWrapper><Amenities /></PageWrapper>} />           
             <Route path="/transport" element={<PageWrapper><Transport /></PageWrapper>} />
-
-            <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
-            
-            <Route path="/book-room" element={<PageWrapper><BookRoom /></PageWrapper>} />
-            
+            <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />            
+            <Route path="/book-room" element={<PageWrapper><BookRoom /></PageWrapper>} />           
             <Route path="/admin" element={<PageWrapper><AdminDashboard /></PageWrapper>} />
-            
+            <Route path="/enquiry" element={<PageWrapper><EnquiryPage /></PageWrapper>} />
           </Routes>
         </AnimatePresence>
       </main>
