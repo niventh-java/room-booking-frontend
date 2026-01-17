@@ -17,11 +17,11 @@ export default function Hero() {
 
       {/* 2. Brand Identity */}
       <div className="absolute inset-x-0 top-24 md:top-28 z-[2] text-center pointer-events-none mt-12">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-[0.3em] text-white font-light">
+        <h2 className="text-white text-[13px] md:text-lg tracking-[0.55em] font-extralight whitespace-nowrap uppercase leading-none text-center">
           JOURNEY JUNCTION
         </h2>
-        <p className="mt-2 text-[10px] sm:text-xs tracking-[0.45em] text-[#C9A24D] uppercase font-bold">
-          Premium Munnar Stay
+        <p className="text-[#C9A24D] text-[7px] md:text-[9px] tracking-[0.4em] uppercase font-bold mt-2 opacity-90 italic">
+         premium munnar stay
         </p>
       </div>
 
@@ -69,42 +69,36 @@ export default function Hero() {
       Wake up to misty hills, fresh air, and timeless comfort.
       Experience a refined stay where nature meets elegance.
     </motion.p>
-    
-    {/* Animated Buttons Container */}
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: 1.4 }}
-      className="flex flex-col sm:flex-row gap-6 justify-center mt-12"
-    >
-       {/* Your buttons go here... */}
-       
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mt-12">
-            <button
-              onClick={() => navigate("/rooms")}
-              className="group relative px-10 py-4 overflow-hidden border border-[#C9A24D] bg-[#C9A24D] text-black text-[11px] uppercase tracking-[0.4em] font-bold transition-all duration-500 hover:text-white"
-            >
-              <span className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"></span>
-              <span className="relative z-10 flex items-center gap-2">
-                Explore Suites 
-                <span className="group-hover:translate-x-2 transition-transform duration-500">→</span>
-              </span>
-            </button>
-      
-            <button
-              onClick={() => navigate("/enquiry")}
-              className="group relative px-10 py-4 overflow-hidden border border-white/40 text-white text-[11px] uppercase tracking-[0.4em] font-light transition-all duration-700 hover:border-white"
-            >
-              <span className="absolute inset-0 bg-white translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></span>
-              <span className="relative z-10 group-hover:text-black transition-colors duration-500">
-                Private Enquiry
-              </span>
-            </button>
-          </div>
-    </motion.div>
+   {/* Animated Buttons Container */}
+<motion.div 
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, delay: 1.4 }}
+  className="flex flex-col md:flex-row gap-4 justify-center items-center mt-10"
+>
+  {/* Explore Suites Button - Slimmed Down */}
+  <button
+    onClick={() => navigate("/rooms")}
+    className="group relative w-full max-w-[240px] md:w-auto px-8 py-3 overflow-hidden border border-[#C9A24D] bg-[#C9A24D] text-black text-[10px] uppercase tracking-[0.3em] font-bold transition-all duration-500 hover:text-white rounded-sm md:rounded-none"
+  >
+    <span className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"></span>
+    <span className="relative z-10 flex items-center justify-center gap-2">
+      Explore Suites 
+      <span className="group-hover:translate-x-1 transition-transform duration-500">→</span>
+    </span>
+  </button>
 
-  
+  {/* Private Enquiry Button - Slimmed Down */}
+  <button
+    onClick={() => navigate("/enquiry")}
+    className="group relative w-full max-w-[240px] md:w-auto px-8 py-3 overflow-hidden border border-white/30 text-white text-[10px] uppercase tracking-[0.3em] font-light transition-all duration-700 backdrop-blur-sm rounded-sm md:rounded-none"
+  >
+    <span className="absolute inset-0 bg-white translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></span>
+    <span className="relative z-10 flex items-center justify-center group-hover:text-black transition-colors duration-500">
+      Private Enquiry
+    </span>
+  </button>
+</motion.div>
         </div>
       </div>
 
