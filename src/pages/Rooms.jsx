@@ -144,7 +144,7 @@ export default function Rooms() {
 
               {/* Action Button - High tactile feedback for mobile */}
               <button 
-                 onClick={() => window.open(`https://wa.me/919940984731?text=Inquiry%20for%20${room.name}`, '_blank')}
+                 onClick={() => window.open(`https://wa.me/919360809160?text=Inquiry%20for%20${room.name}`, '_blank')}
                  className="w-full py-4 bg-[#C9A24D] text-black text-[10px] font-black uppercase tracking-[0.2em] active:scale-95 md:hover:bg-white transition-all duration-300"
               >
                 Reserve Now
