@@ -5,7 +5,7 @@ import heroImg from "../assets/home.jpeg";
 import { motion } from "framer-motion";
 export default function Hero() {
   const navigate = useNavigate();
-  const managerPhone = "919940984731";
+  const managerPhone = "919360809160";
 
   return (
     <section

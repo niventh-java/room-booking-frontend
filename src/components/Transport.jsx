@@ -46,7 +46,7 @@ export default function Transport() {
 
   const handleQuickInquiry = (vName) => {
     const msg = encodeURIComponent(`Hi, I'm interested in booking the ${vName} at Dazzling Villa.`);
-    window.open(`https://wa.me/919940984731?text=${msg}`, "_blank");
+    window.open(`https://wa.me/919360809160?text=${msg}`, "_blank");
   };
 
   return (
