@@ -7,11 +7,10 @@ import {
   MapPin,
   Waves,
   Sun,
-  Leaf, // New icon for forest/museum
+  Leaf,
 } from "lucide-react";
 
 const directions = [
-  // YOUR EXISTING CONTENT
   {
     title: "The Mattupetty Trail",
     subtitle: "Mist & Valleys",
@@ -46,7 +45,6 @@ const directions = [
       { name: "Kolukkumalai Sunrise", icon: <Sun size={14} /> },
     ],
   },
-  // NEW CONTENT FROM YOUR IMAGE
   {
     title: "Coimbatore Direction",
     subtitle: "Sanctuaries & Falls",
@@ -64,34 +62,39 @@ const directions = [
 
 export default function Directions() {
   return (
-    <section className="bg-[#0A0F0A] py-32 overflow-hidden">
+    <section className="bg-[#0A0F0A] py-24 md:py-32 overflow-hidden">
       {/* HEADER SECTION */}
-      <div className="max-w-4xl mx-auto text-center mb-24 px-6">
-        <span className="text-[#C9A24D] uppercase tracking-[0.3em] text-xs mb-4 block">
+      <div className="max-w-4xl mx-auto text-center mb-16 md:mb-24 px-6">
+        <span className="text-[#C9A24D] uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4 block">
           Curated Experiences
         </span>
-        <h2 className="text-4xl md:text-5xl font-serif italic text-white mb-6">
+        <h2 className="text-3xl md:text-5xl font-serif italic text-white mb-6">
           Explore Munnar
         </h2>
         <div className="w-24 h-[1px] bg-[#C9A24D]/40 mx-auto"></div>
       </div>
 
-      {/* MARQUEE CONTAINER */}
-      <div className="relative w-full">
-        {/* Gradient Fades for edges */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0A0F0A] to-transparent z-10"></div>
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0A0F0A] to-transparent z-10"></div>
+      {/* HORIZONTAL SCROLL CONTAINER */}
+      <div className="relative w-full group">
+        {/* Visual Fades (Hidden on small mobile to give more space) */}
+        <div className="hidden md:block absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0A0F0A] to-transparent z-10 pointer-events-none"></div>
+        <div className="hidden md:block absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0A0F0A] to-transparent z-10 pointer-events-none"></div>
 
-        <div className="flex animate-marquee gap-8 whitespace-nowrap">
-          {[...directions, ...directions].map((dir, index) => (
+        {/* SCROLLABLE AREA 
+            - overflow-x-auto: enables horizontal scroll
+            - snap-x snap-mandatory: enables card "snapping"
+            - scrollbar-hide: custom utility or CSS to hide scrollbar
+        */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-6 px-6 md:px-[10%] pb-10 custom-scrollbar-css">
+          {directions.map((dir, index) => (
             <div
               key={index}
-              className="group min-w-[350px] bg-white/[0.03] border border-white/10 backdrop-blur-sm p-10 
+              className="flex-none snap-center w-[85vw] md:w-[400px] bg-white/[0.03] border border-white/10 backdrop-blur-sm p-8 md:p-10 
                          transition-all duration-500 hover:border-[#C9A24D]/50 hover:bg-white/[0.05]"
             >
               <div className="flex flex-col gap-1 mb-8">
                 <div className="flex items-center gap-3">
-                   <Compass className="text-[#C9A24D] animate-pulse" size={18} />
+                   <Compass className="text-[#C9A24D]" size={18} />
                    <h3 className="text-[#E6D08A] tracking-[0.15em] uppercase text-sm font-medium">
                      {dir.title}
                    </h3>
@@ -105,7 +108,7 @@ export default function Directions() {
                 {dir.places.map((place, i) => (
                   <li 
                     key={i} 
-                    className="flex items-center gap-4 text-white/80 group-hover:text-white transition-colors duration-300"
+                    className="flex items-center gap-4 text-white/70 hover:text-white transition-colors duration-300"
                   >
                     <span className="text-[#C9A24D]/60">{place.icon}</span>
                     <span className="text-sm font-light tracking-wide">{place.name}</span>
@@ -113,15 +116,31 @@ export default function Directions() {
                 ))}
               </ul>
               
-              <div className="mt-8 pt-6 border-t border-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <button className="text-[10px] uppercase tracking-[0.2em] text-[#C9A24D] hover:underline">
-                  View Route Map
+              <div className="mt-8 pt-6 border-t border-white/5 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
+                <button className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C9A24D] hover:underline flex items-center gap-2">
+                  View Route Map <span className="text-lg">→</span>
                 </button>
               </div>
             </div>
           ))}
         </div>
+        
+        {/* MOBILE HINT */}
+        <p className="md:hidden text-center text-white/20 text-[9px] uppercase tracking-[0.3em] mt-4">
+           Swipe to explore routes
+        </p>
       </div>
+
+      {/* Add this CSS to your global style file (e.g., index.css) */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}} />
     </section>
   );
 }

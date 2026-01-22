@@ -5,8 +5,9 @@ import { Clock, Shield, MessageCircle, X } from "lucide-react";
 // 1. LOCAL IMAGE IMPORTS
 // Ensure these files exist in your src/assets folder
 import tharImage from "../assets/thar.jpeg";
-import innovaImage from "../assets/innova.jpg"; // Assuming you have/will add this
+//import innovaImage from "../assets/innova.jpg"; // Assuming you have/will add this
 import tukTukImage from "../assets/auto.jpeg";
+import photoedit from "../assets/photoedit.jpg"
 
 const fleet = [
   {
@@ -26,7 +27,7 @@ const fleet = [
     desc: "Seamless airport transfers and city tours with maximum comfort.",
     price: "₹2,500",
     tag: "Comfort",
-    image: innovaImage,
+    image: photoedit,
     features: ["6 Passengers", "Fully Air Conditioned", "Professional Chauffeur"]
   },
   {

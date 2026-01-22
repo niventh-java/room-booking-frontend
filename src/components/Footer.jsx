@@ -107,7 +107,7 @@ export default function Footer() {
         {/* BOTTOM BAR: Stacked on mobile */}
         <div className="pt-8 border-t border-white/5 flex flex-col-reverse md:flex-row justify-between items-center gap-8">
           <p className="text-[9px] text-white/30 uppercase tracking-[0.2em] text-center">
-            © 2024 Journey Junction Munnar. <br className="md:hidden" /> All Rights Reserved.
+            © 2026 Journey Junction Munnar. <br className="md:hidden" /> All Rights Reserved.
           </p>
           
           <button 
