@@ -85,7 +85,7 @@ export default function Footer() {
                     <span>+91 93608 09160</span>
                   </a>
                   <a href="tel:+917904796306" className="flex items-center justify-center sm:justify-start gap-3 py-1 sm:pl-7">
-                    <span>+91 99409 84731</span>
+                    <span>+91 79047 96306</span>
                   </a>
                 </div>
               </div>

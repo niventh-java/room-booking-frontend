@@ -17,7 +17,7 @@ export default function EnquiryPage() {
     setIsLoaded(true);
   }, []);
 
-  const managerPhone = "919940984731";
+  const managerPhone = "919360809160";
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
